@@ -12,7 +12,7 @@ CORS(app)
 def run_code():
     data = request.get_json(silent=True)
 
-    # ✅ Handle missing or empty code safely
+    
     if not data or "code" not in data or not data["code"].strip():
         return jsonify({
             "output": "No code provided. Please enter some Python code."
@@ -20,7 +20,7 @@ def run_code():
 
     code = data["code"]
 
-    # ✅ Code length protection (5000 characters)
+    
     if len(code) > 100:
         return jsonify({
             "output": "Code too long. Maximum allowed length is 100 characters."
